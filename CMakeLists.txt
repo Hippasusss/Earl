@@ -16,7 +16,7 @@ cmake_minimum_required(VERSION 3.22)
 
 project(EARL VERSION 0.0.1)
 
-add_subdirectory(../JUCE)
+add_subdirectory(../JUCE ${CMAKE_CURRENT_BINARY_DIR}/JUCE)
 # If you are building a VST2 or AAX plugin, CMake needs to be told where to find these SDKs on your
 # system. This setup should be done before calling `juce_add_plugin`.
 
