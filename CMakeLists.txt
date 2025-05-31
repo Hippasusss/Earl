@@ -88,6 +88,10 @@ target_compile_definitions(Earl
 # dependencies are resolved automatically, so `juce_core`, `juce_events` and so on will also be
 # linked automatically. If we'd generated a binary data target above, we would need to link to it
 # here too. This is a standard CMake command.
+if(MSVC)
+    set_property(TARGET Earl_VST3 PROPERTY VS_DEBUGGER_COMMAND "../Juce/AudioPluginHost.exe")
+    set_property(TARGET Earl_VST3 PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>")
+endif()
 
 target_link_libraries(Earl
     PRIVATE
