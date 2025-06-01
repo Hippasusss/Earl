@@ -21,7 +21,7 @@ AudioPluginAudioProcessor::~AudioPluginAudioProcessor()
 //==============================================================================
 const juce::String AudioPluginAudioProcessor::getName() const
 {
-    return JucePlugin_Name;
+    return "Earl"; 
 }
 
 bool AudioPluginAudioProcessor::acceptsMidi() const
