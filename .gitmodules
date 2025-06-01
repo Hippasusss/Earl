@@ -1,0 +1,3 @@
+[submodule "libs/JUCECC"]
+	path = libs/JUCECC
+	url = git@github.com:Hippasusss/JUCECC.git
