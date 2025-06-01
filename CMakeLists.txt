@@ -15,7 +15,7 @@ cmake_minimum_required(VERSION 3.22)
 # directories, and the current project version. This is a standard CMake command.
 
 project(EARL VERSION 0.0.1)
-
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_subdirectory(../JUCE ${CMAKE_CURRENT_BINARY_DIR}/JUCE)
 # If you are building a VST2 or AAX plugin, CMake needs to be told where to find these SDKs on your
 # system. This setup should be done before calling `juce_add_plugin`.
@@ -40,7 +40,7 @@ juce_add_plugin(Earl
     PLUGIN_MANUFACTURER_CODE Hipp # A four-character manufacturer id with at least one upper-case character
     PLUGIN_CODE Earl # A unique four-character plugin id with exactly one upper-case character
     FORMATS AAX VST3                   # The formats to build. Other valid formats are: AAX Unity VST AU AUv3
-    PRODUCT_NAME "Earl")        # The name of the final executable, which can differ from the target name
+    PRODUCT_NAME Earl)        # The name of the final executable, which can differ from the target name
 
 # `juce_generate_juce_header` will create a JuceHeader.h for a given target, which will be generated
 # into your build tree. This should be included with `#include <JuceHeader.h>`. The include path for
