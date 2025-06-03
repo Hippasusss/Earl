@@ -6,11 +6,13 @@ cmake_minimum_required(VERSION 3.22)
 
 
 
+set (JUCE_LIBRARY_PATH ../JUCE)
+
 project(EARL VERSION 0.0.1)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-add_subdirectory(../JUCE ${CMAKE_CURRENT_BINARY_DIR}/JUCE)
+add_subdirectory(${JUCE_LIBRARY_PATH} ${CMAKE_CURRENT_BINARY_DIR}/JUCE)
 add_subdirectory(libs/JUCECC)
-juce_set_aax_sdk_path(../JUCE/modules/juce_audio_plugin_client/AAX/SDK)
+juce_set_aax_sdk_path(${JUCE_LIBRARY_PATH}/modules/juce_audio_plugin_client/AAX/SDK)
 
 juce_add_plugin(Earl
     # ICON_SMALL ...
@@ -42,7 +44,7 @@ target_compile_definitions(Earl
 
 # juce_add_binary_data(AudioPluginData SOURCES ...)
 if(MSVC)
-    set_property(TARGET Earl_VST3 PROPERTY VS_DEBUGGER_COMMAND $<$<CONFIG:Debug>:../Juce/AudioPluginHost.exe>)
+    set_property(TARGET Earl_VST3 PROPERTY VS_DEBUGGER_COMMAND $<$<CONFIG:Debug>:${JUCE_LIBRARY_PATH}/AudioPluginHost.exe>)
     set_property(TARGET Earl_VST3 PROPERTY VS_DEBUGGER_WORKING_DIRECTORY $<$<CONFIG:Debug>:${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>>)
 endif()
 
