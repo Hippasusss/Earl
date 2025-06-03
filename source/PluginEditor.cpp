@@ -7,7 +7,8 @@ AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor (AudioPluginAud
     titleBar(p.getName()),
     mainSlider("main")
 {
-    for (auto& component : components) {
+    for (auto& component : components) 
+    {
         component->setLookAndFeel(&lookAndFeel);
         addAndMakeVisible(component);
     }
@@ -16,6 +17,10 @@ AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor (AudioPluginAud
 
 AudioPluginAudioProcessorEditor::~AudioPluginAudioProcessorEditor()
 {
+    for (auto& component : components) 
+    {
+        component->setLookAndFeel(nullptr);
+    }
 }
 
 //==============================================================================
