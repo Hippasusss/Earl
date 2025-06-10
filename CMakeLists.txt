@@ -50,7 +50,6 @@ endif()
 
 target_link_libraries(Earl
     PRIVATE
-    # AudioPluginData           # If we'd created a binary data target, we'd link to it here
     juce::juce_audio_utils
     PUBLIC
     JUCECC
