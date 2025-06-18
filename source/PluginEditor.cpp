@@ -34,6 +34,4 @@ void AudioPluginAudioProcessorEditor::resized()
     auto bounds = getLocalBounds();
     titleBar.setBounds(bounds.removeFromTop(100));
     mainSlider.setBounds(bounds);
-    // This is generally where you'll want to lay out the positions of any
-    // subcomponents in your editor..
 }
