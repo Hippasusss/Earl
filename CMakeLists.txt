@@ -1,10 +1,4 @@
-
 cmake_minimum_required(VERSION 3.22)
-
-
-
-
-
 
 set (JUCE_LIBRARY_PATH ../JUCE)
 
