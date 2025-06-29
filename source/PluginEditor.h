@@ -24,7 +24,7 @@ private:
     CustomLookAndFeel lookAndFeel;
 
     std::array<Component*, 2> components 
-       {
+    {
         &titleBar,
         &mainSlider, 
     };
