@@ -31,8 +31,9 @@ juce_add_plugin(Earl
 
 target_sources(Earl
     PRIVATE
-    Source/PluginEditor.cpp
-    Source/PluginProcessor.cpp)
+    source/PluginEditor.cpp
+    source/PluginProcessor.cpp
+    source/Doubler.cpp)
 
 target_compile_definitions(Earl
     PUBLIC
