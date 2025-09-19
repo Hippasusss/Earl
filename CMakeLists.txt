@@ -27,7 +27,8 @@ target_sources(Earl
     PRIVATE
     source/PluginEditor.cpp
     source/PluginProcessor.cpp
-    source/Doubler.cpp)
+    source/ImpulseResponse.cpp
+    source/FileBrowser.cpp)
 
 target_compile_definitions(Earl
     PUBLIC
@@ -46,6 +47,7 @@ endif()
 target_link_libraries(Earl
     PRIVATE
     juce::juce_audio_utils
+    juce::juce_dsp
     PUBLIC
     JUCECC
     juce::juce_recommended_config_flags
