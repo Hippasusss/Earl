@@ -1,3 +1,9 @@
+
+
+
+
+
+
 #pragma once
 
 #include "PluginProcessor.h"
@@ -20,13 +26,31 @@ private:
     AudioPluginAudioProcessor& processorRef;
 
     TitleBar titleBar;
-    LabeledSlider mainSlider;
+    LabeledSlider dryWetSlider;
+    LabeledSlider pitchSlider;
+    LabeledSlider stretchSlider;
+    LabeledSlider lengthSlider;
+    LabeledSlider startFade;
+    LabeledSlider endFade;
+    LabeledSlider startTrim;
+    LabeledSlider endTrim;
+    GroupComponent sliderGroup;
+
     CustomLookAndFeel lookAndFeel;
 
-    std::array<Component*, 2> components 
+
+    std::array<Component*, 10> components 
     {
         &titleBar,
-        &mainSlider, 
+        &dryWetSlider, 
+        &pitchSlider,
+        &stretchSlider,
+        &lengthSlider,
+        &startFade,
+        &endFade,
+        &startTrim,
+        &endTrim,
+        &sliderGroup,
     };
 
 

@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
@@ -5,7 +12,15 @@
 AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor (AudioPluginAudioProcessor& p)
     : AudioProcessorEditor (&p), processorRef (p), 
     titleBar(p.getName()),
-    mainSlider("main")
+    dryWetSlider("main"),
+    pitchSlider("pitch"),
+    stretchSlider("stretch"),
+    lengthSlider("length"),
+    startFade("startFade"),
+    endFade("endFade"),
+    startTrim("startTrim"),
+    endTrim("endTrim"),
+    sliderGroup("sliderGroup")
 {
     for (auto& component : components) 
     {
@@ -33,5 +48,5 @@ void AudioPluginAudioProcessorEditor::resized()
 {
     auto bounds = getLocalBounds();
     titleBar.setBounds(bounds.removeFromTop(100));
-    mainSlider.setBounds(bounds);
+    dryWetSlider.setBounds(bounds);
 }
