@@ -1,6 +1,14 @@
+
+
+
+
+
+
 #pragma once
 
 #include <juce_audio_processors/juce_audio_processors.h>
+#include "juce_dsp/juce_dsp.h"
+#include "ImpulseResponse.h"
 
 //==============================================================================
 class AudioPluginAudioProcessor final : public juce::AudioProcessor
@@ -44,5 +52,7 @@ public:
 
 private:
     //==============================================================================
+    juce::dsp::Convolution convolution {juce::dsp::Convolution::NonUniform{512}};
+    ImpulseResponse IR;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioPluginAudioProcessor)
 };
