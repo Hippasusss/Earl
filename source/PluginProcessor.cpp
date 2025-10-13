@@ -86,9 +86,8 @@ void AudioPluginAudioProcessor::changeProgramName (int index, const juce::String
 //==============================================================================
 void AudioPluginAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    
     const dsp::ProcessSpec spec {sampleRate, static_cast<uint32>(samplesPerBlock), static_cast<uint32>(getTotalNumOutputChannels())};
-    juce::ignoreUnused (sampleRate, samplesPerBlock);
+    IR.loadIR(juce::File("C:/Users/danny/Projects/Audio/EMT.wav"));
     convolution.prepare(spec);
 }
 

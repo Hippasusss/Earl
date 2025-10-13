@@ -8,6 +8,7 @@
 
 #include "PluginProcessor.h"
 #include "LabeledSlider.h"
+#include "WaveformDisplay.h"
 #include "TitleBar.h"
 // #include "melatonin_inspector/melatonin_inspector.h"
 
@@ -34,12 +35,25 @@ private:
     LabeledSlider endFade;
     LabeledSlider startTrim;
     LabeledSlider endTrim;
+    WaveformDisplay waveForm;
     GroupComponent sliderGroup;
 
     CustomLookAndFeel lookAndFeel;
 
+    std::array<LabeledSlider*, 8> sliders
+    {
+        &dryWetSlider, 
+        &pitchSlider,
+        &stretchSlider,
+        &lengthSlider,
+        &startFade,
+        &endFade,
+        &startTrim,
+        &endTrim,
+    };
 
-    std::array<Component*, 10> components 
+
+    std::array<Component*, 11> components 
     {
         &titleBar,
         &dryWetSlider, 
@@ -51,6 +65,7 @@ private:
         &startTrim,
         &endTrim,
         &sliderGroup,
+        &waveForm
     };
 
 

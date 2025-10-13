@@ -5,11 +5,11 @@
 
 
 #include "ImpulseResponse.h"
-#include "juce_audio_formats/juce_audio_formats.h"
 
 ImpulseResponse::ImpulseResponse() :
-    IR(), IRblock(IR)
+    IR(), IRblock(IR), formatManager()
 {
+    formatManager.registerBasicFormats();
 }
 
 ImpulseResponse::~ImpulseResponse()
@@ -18,9 +18,11 @@ ImpulseResponse::~ImpulseResponse()
 
 void ImpulseResponse::loadIR(juce::File file)
 {
-    juce::AudioFormatManager formatManager;
-    auto formatReader = formatManager.createReaderFor(file);
+    auto formatReader = std::unique_ptr<juce::AudioFormatReader>(formatManager.createReaderFor(file));
+    IR.clear();
+    IR.setSize(formatReader->numChannels, formatReader->lengthInSamples);
     formatReader->read(&IR,0,formatReader->lengthInSamples,0,true,true);
+    sendChangeMessage();
 }
 
 void ImpulseResponse::pitchCurrentIR(float semitones)

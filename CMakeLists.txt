@@ -28,7 +28,8 @@ target_sources(Earl
     source/PluginEditor.cpp
     source/PluginProcessor.cpp
     source/ImpulseResponse.cpp
-    source/FileBrowser.cpp)
+    source/FileBrowser.cpp
+    source/WaveformDisplay.cpp)
 
 target_compile_definitions(Earl
     PUBLIC

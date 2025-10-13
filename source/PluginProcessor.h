@@ -11,7 +11,7 @@
 #include "ImpulseResponse.h"
 
 //==============================================================================
-class AudioPluginAudioProcessor final : public juce::AudioProcessor
+class AudioPluginAudioProcessor final : public juce::AudioProcessor 
 {
 public:
     //==============================================================================
@@ -49,6 +49,8 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+
+    auto& getIR() {return IR;};
 
 private:
     //==============================================================================
