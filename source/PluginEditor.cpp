@@ -21,7 +21,7 @@ AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor (AudioPluginAud
     endFade("fade out"),
     startTrim("start trim"),
     endTrim("end trim"),
-    waveForm(p.getIR()),
+    waveForm(),
     sliderGroup("sliderGroup")
 {
     for (auto& component : components) 
@@ -62,7 +62,5 @@ void AudioPluginAudioProcessorEditor::resized()
     auto bounds = getLocalBounds();
     titleBar.setBounds(bounds.removeFromTop(50));
     auto waveformBounds = bounds.removeFromTop(350);
-    waveForm.setBounds(waveformBounds);
-    sliderGroup.setBounds(bounds);
     LayoutHelpers::distributeHorizontally(sliders, bounds, 10);
 }
